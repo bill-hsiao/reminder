@@ -11,6 +11,8 @@ const AuthToken = process.env.api_AuthToken;
 const twilio = require('twilio');
 
 
+const userController = require('../controllers/users')
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Texting App' });
@@ -37,13 +39,14 @@ router.post('/send', function(req, res, next) {
 });
 
 
-router.get('/user/signin', function(req, res, next) {
-  res.render('user/signin', { title: 'Sign In' });
-});
+router.get('/user/signin', () => userController.signInGet);
 
 router.get('/user/signup', function(req, res, next) {
   res.render('user/signup', { title: 'Sign Up'});
 });
+router.post('/user/signup', function(req, res, next) {
+
+})
 
 
 
