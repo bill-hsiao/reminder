@@ -3,27 +3,25 @@ const Schema = mongoose.Schema;
 
 
 
-const userSchema = new Schema({
-  name: {
+const itemSchema = new Schema({
+  key: {
     type: String,
     required: true
   },
-  password: {
+  type: {
+    type: String
+  },
+  subject: {
     type: String,
     required: true
   },
-  phone: {
+  content: {
     type: String,
     required: true
   },
-  email: {
-    type: String,
-    required: true
-  },
-  activated: {
-    type: Boolean
-  },
+
+
   objectId: Schema.Types.ObjectId
 })
 
-module.exports = mongoose.model("User", userSchema);
+module.exports = mongoose.model("Item", itemSchema);
